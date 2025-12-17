@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezonov Reels | [BZRS]</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="team-tag">[BZRS]</div>
+            <h1>Bezonov Reels</h1>
+            <p class="tagline">Создаем цифровые проекты: сайты, игры, приложения.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about-section">
+            <h2><i class="fas fa-users"></i> Наша команда</h2>
+            <div class="team-member">
+                <div class="member-icon"><i class="fas fa-user-astronaut"></i></div>
+                <div class="member-info">
+                    <h3>zzMalinoviy</h3>
+                    <p>Разработчик и основатель</p>
+                </div>
+            </div>
+            <p class="team-note">Мы — небольшая, но увлеченная команда, открытая для новых участников и амбициозных задач.</p>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-info-circle"></i> О нас</h2>
+            <p>Мы, команда Bezonov Reels, состоящая из нескольких человек. Наша задача — делать проекты (сайты, игры, приложения).</p>
+            <p>Мы фокусируемся на качестве, креативном подходе и реализации идей под ключ.</p>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-handshake"></i> Сотрудничество</h2>
+            <p>Есть идея для проекта? Мы поможем ей реализоваться.</p>
+            <p>Вы можете сделать свою заявку на заказ проекта, связавшись с нами через Telegram.</p>
+            <div class="actions">
+                <a href="https://t.me/bezonov" class="btn btn-order" target="_blank">
+                    <i class="fab fa-telegram-plane"></i> Заказать проект
+                </a>
+                <a href="https://t.me/bezonov" class="btn btn-channel" target="_blank">
+                    <i class="fas fa-paper-plane"></i> Наш Telegram-канал
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year"></span> Команда Bezonov Reels. Все права защищены.</p>
+            <p class="footer-tag">[BZRS]</p>
+        </div>
+    </footer>
+
+    <script>
+        // Добавляем текущий год в футер
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
