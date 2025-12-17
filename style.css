@@ -255,3 +255,95 @@ footer p {
         justify-content: center;
     }
 }
+
+/* Основные стили для кнопок участников */
+.member-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 22px;
+    margin-top: 12px;
+    color: white;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    min-width: 140px;
+}
+
+/* Конкретно для GitHub кнопки */
+.member-btn.github-btn {
+    background: linear-gradient(135deg, #333333, #000000);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.member-btn.github-btn:hover {
+    background: linear-gradient(135deg, #444444, #111111);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Иконки внутри кнопок */
+.member-btn i {
+    font-size: 1.2rem;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .member-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        min-width: 120px;
+    }
+    
+    .member-btn i {
+        font-size: 1rem;
+    }
+}
+
+/* телеграм кнопка */
+.member-btn.telegram-btn {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+}
+
+.member-btn.telegram-btn:hover {
+    background: linear-gradient(135deg, #05cad8, #056592);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(12, 28, 168, 0.4);
+}
+
+.project-section {
+    background-color: var(--secondary-bg);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(157, 78, 221, 0.2);
+}
+
+.project-section p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.project-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
