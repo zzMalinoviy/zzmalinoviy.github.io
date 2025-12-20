@@ -347,3 +347,8 @@ footer p {
     align-items: center;
     gap: 10px;
 }
+
+.changelog {
+    text-decoration: none;
+    color: white;
+}
