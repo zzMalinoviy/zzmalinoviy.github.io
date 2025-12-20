@@ -1,0 +1,76 @@
+1. Дизайн и интерфейс
+
+<span class="tag design">дизайн</span>          <!-- фиолетовый -->
+<span class="tag ui">UI/UX</span>               <!-- зеленый -->
+<span class="tag redesign">редизайн</span>      <!-- фиолетовый -->
+<span class="tag animation">анимации</span>     <!-- оранжевый -->
+<span class="typography">типографика</span>     <!-- голубой -->
+
+
+2. Frontend
+
+<span class="tag frontend">frontend</span>      <!-- синий -->
+<span class="tag responsive">адаптивность</span><!-- голубой -->
+<span class="tag mobile">мобильное</span>       <!-- розовый -->
+<span class="tag accessibility">доступность</span> <!-- зеленый -->
+<span class="tag performance">производительность</span> <!-- красный -->
+
+
+3. Backend
+
+<span class="tag backend">backend</span>        <!-- фиолетовый -->
+<span class="tag database">база данных</span>   <!-- серый -->
+<span class="tag api">API</span>                <!-- голубой -->
+<span class="tag security">безопасность</span>  <!-- зеленый -->
+<span class="tag optimization">оптимизация</span> <!-- желтый -->
+<span class="tag server">сервер</span>          <!-- серый -->
+
+
+4. Функциональность
+
+<span class="tag feature">функция</span>        <!-- синий -->
+<span class="tag forms">формы</span>            <!-- зеленый -->
+<span class="tag gallery">галерея</span>        <!-- темно-серый -->
+<span class="tag search">поиск</span>           <!-- оранжевый -->
+<span class="tag ecommerce">магазин</span>      <!-- синий -->
+<span class="tag blog">блог</span>              <!-- фиолетовый -->
+<span class="tag comments">комментарии</span>   <!-- голубой -->
+
+
+5. Технические
+
+<span class="tag bugfix">исправление</span>     <!-- красный -->
+<span class="tag refactor">рефакторинг</span>   <!-- желтый -->
+<span class="tag migration">миграция</span>     <!-- оранжевый -->
+<span class="tag seo">SEO</span>                <!-- зеленый -->
+<span class="tag analytics">аналитика</span>    <!-- голубой -->
+<span class="tag testing">тестирование</span>   <!-- фиолетовый -->
+
+
+6. Контент
+
+<span class="tag content">контент</span>        <!-- серый -->
+<span class="tag translation">перевод</span>    <!-- голубой -->
+<span class="tag docs">документация</span>      <!-- серый -->
+<span class="tag tutorial">руководство</span>   <!-- зеленый -->
+<span class="tag media">медиа</span>            <!-- фиолетовый -->
+
+
+7. Коммуникация
+
+<span class="tag notifications">уведомления</span> <!-- оранжевый -->
+<span class="tag email">email</span>            <!-- голубой -->
+<span class="tag chat">чат</span>               <!-- зеленый -->
+<span class="tag social">соцсети</span>         <!-- синий -->
+
+
+8. Важные обновления
+
+<span class="tag major">крупное</span>          <!-- оранжевый градиент -->
+<span class="tag critical">критическое</span>   <!-- красный -->
+<span class="tag hotfix">горячее исправление</span> <!-- красный -->
+<span class="tag experimental">эксперимент</span> <!-- фиолетовый -->
+
+
+promt bot:
+создай телеграм бота, который будет принимать заказы на проекты от пользователей, после создания заявки бот пересылает ее администратору, где тот решает принять или отклонить, если заявка отклонена нужно указать причину, если админ в замешательстве и незнает тчо выбрать он может переслать заявку в группу с админами, в заявке указывается время, юзернейм, дата, текст для заказа, номер заявки и прочее, полностью продумай функционал, также используй инлайн режим кнопок
