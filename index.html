@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezonov | zzMalinoviy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Герой-секция -->
+        <section class="hero-section" id="hero">
+            <div class="hero-content">
+                <!-- Аватарка с анимацией -->
+                <div class="avatar-container">
+                    <div class="avatar-glow"></div>
+                    <!-- Заменили на статичную аватарку без вращения -->
+                    <img src="../images/avatar.jpg" alt="Аватар Bezonov" class="avatar-static">
+                </div>
+                
+                <!-- Основной никнейм -->
+                <h1 class="main-nickname">Bezonov</h1>
+                
+                <!-- Второй никнейм -->
+                <h2 class="second-nickname">zzMalinoviy</h2>
+                
+                <!-- Девиз -->
+                <p class="motto">Любовь это - Bezonov Reels</p>
+                
+                <!-- Кнопка на сайт команды -->
+                <a href="https://bezonovreels.com" target="_blank" class="btn btn-team">bezonovreels.com</a>
+                
+                <!-- Кнопка прокрутки вниз -->
+                <a href="#about" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Секция "Обо мне" -->
+        <section class="about-section" id="about">
+            <div class="section-content">
+                <h2 class="section-title">Немного о себе</h2>
+                <div class="about-text">
+                    <p>Привет! Я представляюсь как <span class="highlight">zzMalinoviy</span> или <span class="highlight">Bezonov</span>. Мне 16 лет, и я начинающий создатель сайтов на <span class="highlight">HTML, CSS и JavaScript</span>. У меня уже есть своя команда для разработки проектов — <span class="highlight">Bezonov Reels</span>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Команда / Друзья" -->
+        <section class="team-section" id="team">
+            <div class="section-content">
+                <h2 class="section-title">my friends</h2>
+                
+                <!-- Карусель -->
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="carousel">
+                        <div class="carousel-track">
+                            <!-- Карточки друзей будут сгенерированы через JS -->
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Индикаторы карусели -->
+                    <div class="carousel-indicators"></div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Секция "Любимые треки" -->
+        <section class="music-section" id="music">
+            <div class="section-content">
+                <h2 class="section-title">Любимые треки</h2>
+                <p class="music-subtitle">Моя подборка лучших треков. Можно слушать прямо здесь!</p>
+                
+                <div class="music-grid">
+                    <!-- Треки будут добавлены через JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Контакты" -->
+        <section class="contact-section" id="contact">
+            <div class="section-content">
+                <h2 class="section-title">Связаться со мной</h2>
+                <p class="contact-text">Пиши в Telegram:</p>
+                <a href="https://t.me/zzMalinoviy" target="_blank" class="btn btn-telegram">
+                    <i class="fab fa-telegram-plane"></i> Telegram: @zzMalinoviy
+                </a>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="logo-footer">Bezonov Reels</div>
+                <div class="copyright">© 2025 Bezonov Reels. Все права защищены.</div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="background-grid"></div>
+    <script src="script.js"></script>
+</body>
+</html>
