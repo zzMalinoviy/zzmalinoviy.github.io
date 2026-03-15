@@ -1,6 +1,5 @@
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
-const contentContainer = document.querySelector('.content');
 const links = document.querySelectorAll('.adaptive-menu a, .hero-btns a');
 const overlay = document.getElementById('status-overlay');
 const projectDetails = document.getElementById('project-details');
@@ -13,21 +12,14 @@ const projectsData = {
         title: "Основной сайт команды Bezonov Reels!",
         date: "15 Марта 2026",
         img: "site.JPG",
-        desc: "Самая первая работа от команды\n\nСтруктура:\n- Главная, приветсвие пользователя. Краткая ифнормациия о деятельности команды.\n- Раздел с командой.\n- Страница с проектами.\n- Страница с обновлениями.\n- Воможность посмотреть код и загрузить проект.",
-        link: "https://github.com/zzMalinoviy/TemplateSiteBzrs"
-    },
-    /*  site: {
-        title: "Portfolio Engine",
-        date: "10 Марта 2024",
-        img: "avatar.jpeg",
-        desc: "Легкий движок для презентации ваших работ.\n\n- Zero Dependencies (только чистый JS).\n- Адаптивное Glass-меню.\n- Оптимизация под мобильные устройства.",
-        link: "https://t.me"
-    } */
+        desc: "Самая первая работа от команды\n\nСтруктура:\n- Главная, приветствие пользователя.\n- Раздел с командой.\n- Страница с проектами.\n- Страница с обновлениями.",
+        link: "https://github.com"
+    }
 };
 
 const updatesData = [
-    { project: "BZRS - Сайт", version: "v2.0.1", date: "15.03.2026", text: "Заверешние работы над основными модулями.", tag: "feature", tagText: "Новое" },
-    { project: "BZRS - Сайт", version: "v2.0.2", date: "15.03.2026", text: "Неазависимое обновление стилей.", tag: "fix", tagText: "Исправление" },
+    { project: "BZRS - Сайт", version: "v2.0.1", date: "15.03.2026", text: "Завершение работы над основными модулями.", tag: "feature", tagText: "Новое" },
+    { project: "BZRS - Сайт", version: "v2.0.2", date: "15.03.2026", text: "Независимое обновление стилей.", tag: "fix", tagText: "Исправление" },
 ];
 
 function openProject(id) {
@@ -45,14 +37,6 @@ function openProject(id) {
 function closeDetails() {
     projectDetails.classList.remove('active');
     setTimeout(() => projectDetails.style.display = 'none', 500);
-}
-
-function openStatus(type) {
-    const title = document.getElementById('status-title');
-    const desc = document.getElementById('status-desc');
-    title.innerText = type === 'dev' ? "В разработке" : "Упс!";
-    desc.innerText = type === 'dev' ? "Этот раздел еще проектируется. Загляните позже!" : "Информация временно недоступна.";
-    overlay.classList.add('active');
 }
 
 function closeStatus() { overlay.classList.remove('active'); }
@@ -146,3 +130,29 @@ function init() { clusters = Array.from({length: window.innerWidth > 768 ? 80 : 
 function animate() { ctx.clearRect(0,0,width,height); clusters.forEach(c => { c.update(); c.draw(); }); requestAnimationFrame(animate); }
 
 resize(); animate(); renderUpdates();
+
+/* --- БЛОКИРОВКА ЗУМА ДЛЯ TELEGRAM И ПК --- */
+
+// 1. Отключение pinch-to-zoom (пальцами)
+document.addEventListener('touchmove', function (e) {
+    if (e.scale !== 1) { e.preventDefault(); }
+}, { passive: false });
+
+// 2. Отключение двойного тапа для зума
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (e) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) { e.preventDefault(); }
+    lastTouchEnd = now;
+}, false);
+
+// 3. Отключение зума на ПК (Ctrl + колесо и Ctrl + клавиши)
+window.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) { e.preventDefault(); }
+}, { passive: false });
+
+window.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+        e.preventDefault();
+    }
+});
