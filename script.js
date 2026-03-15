@@ -3,45 +3,70 @@ const ctx = canvas.getContext('2d');
 const contentContainer = document.querySelector('.content');
 const links = document.querySelectorAll('.adaptive-menu a, .hero-btns a');
 const overlay = document.getElementById('status-overlay');
+const projectDetails = document.getElementById('project-details');
 
 let width, height, clusters = [];
 const mouse = { x: -2000, y: -2000 };
 
-// Логика заглушек
+const projectsData = {
+    site_bz: {
+        title: "Основной сайт команды Bezonov Reels!",
+        date: "15 Марта 2026",
+        img: "site.JPG",
+        desc: "Самая первая работа от команды\n\nСтруктура:\n- Главная, приветсвие пользователя. Краткая ифнормациия о деятельности команды.\n- Раздел с командой.\n- Страница с проектами.\n- Страница с обновлениями.\n- Воможность посмотреть код и загрузить проект.",
+        link: "https://github.com/zzMalinoviy/TemplateSiteBzrs"
+    },
+    /*  site: {
+        title: "Portfolio Engine",
+        date: "10 Марта 2024",
+        img: "avatar.jpeg",
+        desc: "Легкий движок для презентации ваших работ.\n\n- Zero Dependencies (только чистый JS).\n- Адаптивное Glass-меню.\n- Оптимизация под мобильные устройства.",
+        link: "https://t.me"
+    } */
+};
+
+const updatesData = [
+    { project: "BZRS - Сайт", version: "v2.0.1", date: "15.03.2026", text: "Заверешние работы над основными модулями.", tag: "feature", tagText: "Новое" },
+    { project: "BZRS - Сайт", version: "v2.0.2", date: "15.03.2026", text: "Неазависимое обновление стилей.", tag: "fix", tagText: "Исправление" },
+];
+
+function openProject(id) {
+    const data = projectsData[id];
+    if(!data) return;
+    document.getElementById('det-title').innerText = data.title;
+    document.getElementById('det-date').innerText = data.date;
+    document.getElementById('det-img').src = data.img;
+    document.getElementById('det-text').innerText = data.desc;
+    document.getElementById('det-download').href = data.link;
+    projectDetails.style.display = 'block';
+    setTimeout(() => projectDetails.classList.add('active'), 10);
+}
+
+function closeDetails() {
+    projectDetails.classList.remove('active');
+    setTimeout(() => projectDetails.style.display = 'none', 500);
+}
+
 function openStatus(type) {
     const title = document.getElementById('status-title');
     const desc = document.getElementById('status-desc');
-    
-    if(type === 'no-tg') {
-        title.innerText = "Уже чиним!";
-        desc.innerText = "У этого пользователя временно отсутствует Telegram, но мы работаем над этим.";
-    } else {
-        title.innerText = "В разработке";
-        desc.innerText = "Этот раздел находится на стадии проектирования. Загляните позже!";
-    }
+    title.innerText = type === 'dev' ? "В разработке" : "Упс!";
+    desc.innerText = type === 'dev' ? "Этот раздел еще проектируется. Загляните позже!" : "Информация временно недоступна.";
     overlay.classList.add('active');
 }
 
-function closeStatus() {
-    overlay.classList.remove('active');
-}
+function closeStatus() { overlay.classList.remove('active'); }
 
-// Навигация
 function navigate(e) {
     const href = this.getAttribute('href');
-    
-    // Если это ссылка в разработке (для меню)
-    if (this.classList.contains('dev-link')) {
-        e.preventDefault();
-        openStatus('dev');
-        return;
-    }
+    if (href && !href.startsWith('#')) return;
+    e.preventDefault();
 
     if (href && href.startsWith('#')) {
-        e.preventDefault();
+        closeDetails();
         const target = document.querySelector(href);
         if (target) {
-            contentContainer.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+            target.scrollIntoView({ behavior: 'smooth' });
             document.querySelectorAll('.adaptive-menu a').forEach(l => l.classList.remove('active'));
             const menuLink = document.querySelector(`.adaptive-menu a[href="${href}"]`);
             if (menuLink) menuLink.classList.add('active');
@@ -49,17 +74,32 @@ function navigate(e) {
     }
 }
 
-links.forEach(l => l.addEventListener('click', navigate));
-
-// Слушатель для кнопок друзей без ТГ
-document.querySelectorAll('.no-tg').forEach(b => {
-    b.addEventListener('click', (e) => {
-        e.preventDefault();
-        openStatus('no-tg');
+function renderUpdates(filter = '') {
+    const list = document.getElementById('updates-list');
+    if (!list) return;
+    list.innerHTML = '';
+    const filtered = updatesData.filter(u => u.project.toLowerCase().includes(filter.toLowerCase()));
+    filtered.forEach(u => {
+        const item = document.createElement('div');
+        item.className = 'team-item';
+        item.innerHTML = `
+            <div class="user-info">
+                <div class="user-text">
+                    <h3 class="card-name">${u.project} <span class="card-tag">${u.version}</span></h3>
+                    <span class="card-tag">${u.text}</span>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+                <span class="update-badge tag-${u.tag}">${u.tagText}</span>
+                <span class="card-tag" style="font-size: 0.75rem;">${u.date}</span>
+            </div>`;
+        list.appendChild(item);
     });
-});
+}
 
-// Интерактивный фон (с поддержкой Touch)
+links.forEach(l => l.addEventListener('click', navigate));
+document.getElementById('updates-search').addEventListener('input', (e) => renderUpdates(e.target.value));
+
 function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
@@ -74,7 +114,7 @@ const updateMouse = (e) => {
 
 window.addEventListener('resize', resize);
 window.addEventListener('mousemove', updateMouse);
-window.addEventListener('touchmove', (e) => { updateMouse(e); }, { passive: false });
+window.addEventListener('touchmove', updateMouse, { passive: false });
 window.addEventListener('touchstart', (e) => { updateMouse(e); clusters.forEach(c => c.scare()); }, { passive: false });
 window.addEventListener('mousedown', () => clusters.forEach(c => c.scare()));
 
@@ -90,7 +130,9 @@ class Cluster {
         this.x += this.vx; this.y += this.vy;
         if(this.x<0 || this.x>width) this.vx *= -1;
         if(this.y<0 || this.y>height) this.vy *= -1;
-        if(Math.hypot(mouse.x-this.x, mouse.y-this.y) < 150) this.scare();
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        if(dx*dx + dy*dy < 22500) this.scare(); 
         this.points.forEach(p => { p.ox += (p.tx-p.ox)*0.05; p.oy += (p.ty-p.oy)*0.05; });
     }
     draw() {
@@ -100,7 +142,7 @@ class Cluster {
     }
 }
 
-function init() { clusters = Array.from({length: window.innerWidth > 768 ? 90 : 35}, () => new Cluster()); }
+function init() { clusters = Array.from({length: window.innerWidth > 768 ? 80 : 30}, () => new Cluster()); }
 function animate() { ctx.clearRect(0,0,width,height); clusters.forEach(c => { c.update(); c.draw(); }); requestAnimationFrame(animate); }
 
-resize(); animate();
+resize(); animate(); renderUpdates();
