@@ -13,7 +13,7 @@ const projectsData = {
         date: "15 Марта 2026",
         img: "site.JPG",
         desc: "Самая первая работа от команды\n\nСтруктура:\n- Главная, приветствие пользователя.\n- Раздел с командой.\n- Страница с проектами.\n- Страница с обновлениями.",
-        link: "https://github.com"
+        link: "https://github.com/zzMalinoviy/TemplateSiteBzrs"
     }
 };
 
