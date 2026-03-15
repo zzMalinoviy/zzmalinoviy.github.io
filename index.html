@@ -12,32 +12,26 @@
 <body>
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Секция деталей проекта -->
     <div id="project-details" class="details-overlay">
         <div class="details-content">
-            <button onclick="closeDetails()" class="btn-close">← Назад к проектам</button>
             <div class="details-scroll-area">
                 <h1 id="det-title">Название проекта</h1>
                 <div class="det-meta">Дата создания: <span id="det-date">01.01.2024</span></div>
-                
-                <div class="det-screenshots">
-                    <img src="avatar.jpeg" alt="Screen 1" id="det-img">
-                </div>
-
+                <div class="det-screenshots"><img src="" alt="Screen" id="det-img"></div>
                 <div class="det-full-desc">
                     <h3>Описание и руководство</h3>
-                    <p id="det-text">Полный текст описания...</p>
+                    <p id="det-text"></p>
                 </div>
-
-                <a href="#" id="det-download" class="btn-primary download-btn" download>Скачать проект</a>
+                <a href="#" id="det-download" class="btn-primary download-btn" target="_blank">Открыть / Загрузить</a>
+                
+                <!-- Кнопка теперь в самом низу скролл-зоны -->
+                <button onclick="closeDetails()" class="btn-close">← Назад к проектам</button>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно статуса -->
     <div id="status-overlay" class="overlay">
         <div class="status-card">
-            <div class="status-icon">!</div>
             <h2 id="status-title">Упс!</h2>
             <p id="status-desc">Информация временно недоступна.</p>
             <button onclick="closeStatus()" class="btn-primary">Вернуться</button>
@@ -54,24 +48,24 @@
     </nav>
 
     <main class="content">
-        <section id="main" class="hero">
+        <section id="main">
             <div class="hero-container">
                 <div class="hero-content">
                     <span class="badge">Bezonov Production</span>
                     <h1>НАЧИНАЮЩАЯ КОМАНДА, КОТОРАЯ УЖЕ <span>ПОКОРИЛА</span> ВАШЕ СЕРДЦЕ!</h1>
                     <p>Bezonov Reels — делаем сайты, телеграм ботов, приложения.</p>
                     <div class="hero-btns">
-                        <a href="https://t.me/bezonovreels_news" target="_blank" class="btn-primary">Наш Telegram</a>
+                        <a href="https://t.me" target="_blank" class="btn-primary">Наш Telegram</a>
                         <a href="#team" class="btn-secondary">Наша Команда</a>
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="screenshot-wrapper"><img src="avatar.jpeg" alt="Screen"><div class="glow"></div></div>
+                    <div class="screenshot-wrapper"><img src="avatar.jpeg" alt="Screen"></div>
                 </div>
             </div>
         </section>
 
-        <section id="team" class="team-section">
+        <section id="team">
             <div class="team-container">
                 <h2 class="section-title">Наша <span>Команда</span></h2>
                 <div class="team-list">
@@ -80,70 +74,55 @@
                             <div class="card-avatar"><img src="bezonov.JPG" alt="Avatar"></div>
                             <div class="user-text"><h3>Bezonov</h3><span class="card-tag">Создатель</span></div>
                         </div>
-                        <a href="https://t.me/alexanderbezonov" target="_blank" class="btn-tg">Telegram</a>
+                        <a href="https://t.me" target="_blank" class="btn-tg">Telegram</a>
                     </div>
                     <div class="team-item">
                         <div class="user-info">
                             <div class="card-avatar"><img src="yaroslav.JPG" alt="Avatar"></div>
                             <div class="user-text"><h3>BadFild</h3><span class="card-tag">Тестер</span></div>
                         </div>
-                        <a href="https://t.me/BadFild1" target="_blank" class="btn-tg">Telegram</a>
+                        <a href="https://t.me" target="_blank" class="btn-tg">Telegram</a>
                     </div>
                     <div class="team-item">
                         <div class="user-info">
                             <div class="card-avatar"><img src="boris.JPG" alt="Avatar"></div>
                             <div class="user-text"><h3>HEH_HEH</h3><span class="card-tag">Идейщик</span></div>
                         </div>
-                        <a href="https://t.me/HEH_HEHR" target="_blank" class="btn-tg">Telegram</a>
+                        <a href="https://t.me" target="_blank" class="btn-tg">Telegram</a>
                     </div>
                     <div class="team-item">
                         <div class="user-info">
                             <div class="card-avatar"><img src="azat.JPG" alt="Avatar"></div>
                             <div class="user-text"><h3>Aзя</h3><span class="card-tag">СММ-щик</span></div>
                         </div>
-                        <a href="https://t.me/chewinggummelon" target="_blank" class="btn-tg">Telegram</a>
+                        <a href="https://t.me" target="_blank" class="btn-tg">Telegram</a>
                     </div>
                 </div>
-                <div class="team-footer"><a href="https://t.me/bezonovreels_robot?start=team" target="_blank" class="btn-primary join-btn">Присоединиться к нам</a></div>
+                <a href="https://t.me" target="_blank" class="btn-primary join-btn-fix">Присоединиться к нам</a>
             </div>
         </section>
 
         <section id="project">
-            <div class="team-container" style="max-width: 1000px;">
+            <div class="team-container">
                 <h2 class="section-title">Наши <span>Проекты</span></h2>
                 <div class="team-list">
                     <div class="team-item">
                         <div class="user-info">
-                            <div class="user-text">
-                                <h3 class="card-name">BZRS - Сайт</h3>
-                                <span class="card-tag">Основной сайт с портфолио команды</span>
-                            </div>
+                            <div class="user-text"><h3>BZRS - Сайт</h3><span class="card-tag">Портфолио команды</span></div>
                         </div>
                         <button onclick="openProject('site_bz')" class="btn-tg">Детали</button>
                     </div>
-                   <!-- <div class="team-item">
-                        <div class="user-info">
-                            <div class="user-text">
-                                <h3 class="card-name">Portfolio Engine</h3>
-                                <span class="card-tag">Ядро для создания интерактивных лендингов.</span>
-                            </div>
-                        </div>
-                        <button onclick="openProject('site')" class="btn-tg">Детали</button>
-                    </div> -->
                 </div>
             </div>
         </section>
         
         <section id="changelog">
-            <div class="team-container" style="max-width: 1000px;">
+            <div class="team-container">
                 <h2 class="section-title">История <span>Обновлений</span></h2>
-                <div class="search-box" style="margin-bottom: 30px; width: 100%;">
-                    <input type="text" id="updates-search" placeholder="Введите название проекта..." 
-                           style="width: 100%; padding: 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; outline: none; font-family: inherit; box-sizing: border-box;">
+                <div style="margin-bottom: 20px; width: 100%;">
+                    <input type="text" id="updates-search" placeholder="Поиск проекта...">
                 </div>
-                <div id="updates-list" class="team-list">
-                    <!-- Рендерится через JS -->
-                </div>
+                <div id="updates-list" class="team-list"></div>
             </div>
         </section>
     </main>
